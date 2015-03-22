@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Data Products Documentation Project</title>
+  <meta charset="utf-8">
+  <meta name="description" content="Data Products Documentation Project">
+  <meta name="author" content="Mirescu C-tin Radu">
+  <meta name="generator" content="slidify" />
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/default.css" media="all" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/phone.css" 
+    media="only screen and (max-device-width: 480px)" >
+  <link rel="stylesheet" href="libraries/frameworks/io2012/css/slidify.css" >
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/tomorrow.css" />
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->  <link rel=stylesheet href="./assets/css/ribbons.css"></link>
+
+  
+  <!-- Grab CDN jQuery, fall back to local if offline -->
+  <script src="http://ajax.aspnetcdn.com/ajax/jQuery/jquery-1.7.min.js"></script>
+  <script>window.jQuery || document.write('<script src="libraries/widgets/quiz/js/jquery.js"><\/script>')</script> 
+  <script data-main="libraries/frameworks/io2012/js/slides" 
+    src="libraries/frameworks/io2012/js/require-1.0.8.min.js">
+  </script>
+  
+  
+
+</head>
+<body style="opacity: 0">
+  <slides class="layout-widescreen">
+    
+    <!-- LOGO SLIDE -->
+        <slide class="title-slide segue nobackground">
+  <hgroup class="auto-fadein">
+    <h1>Data Products Documentation Project</h1>
+    <h2></h2>
+    <p>Mirescu C-tin Radu<br/>programmer</p>
+  </hgroup>
+  <article></article>  
+</slide>
+    
+
+    <!-- SLIDES -->
+    <slide class="" id="slide-1" style="background:;">
+  <hgroup>
+    <h2>Quadratic Equation Solver Shiny Application Documentation</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The shiny application from <a href="http://radumir.shinyapps.io/DataProductsProject/" title="Shiny application">http://radumir.shinyapps.io/DataProductsProject/</a> is focused on solving quadratic equations in the set of real numbers.</p>
+
+<h3>Theoretical aspects</h3>
+
+<p>A quadratic equation is one of the form:</p>
+
+<p>\[a*x^2+b*x+c=0\]</p>
+
+<p>The solutions of it are get by the formula:</p>
+
+<p>\[x=\frac{-b \pm \sqrt{b^2 - 4 a c}}{2a}\]</p>
+
+<p>The formula could not be applied as is for all combinations of coefficients since there are some conditions that should be met (like denominator should not be 0 and the part under square root to be positive).</p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>The interface</h2>
+  </hgroup>
+  <article data-timings="">
+    <p>The interface of the application is like the one in the bellow image that shows the relation between the controls and the equation coefficients.</p>
+
+<p><img src="assets/img/interface.png" alt="Interface example" title="Interface example"></p>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="class" id="id" style="background:;">
+  <hgroup>
+    <h2>Limit cases</h2>
+  </hgroup>
+  <article data-timings="">
+    <ol>
+<li>Undefined equation</li>
+</ol>
+
+<pre><code class="r">a &lt;- 0; b &lt;- 0; c &lt;- 0
+</code></pre>
+
+<ol>
+<li>Impossible equation</li>
+</ol>
+
+<pre><code class="r">a &lt;- 0; b &lt;- 0; c &lt;- 3 #The c could be anything that&#39;s different than 0.
+</code></pre>
+
+<ol>
+<li>Linear equation</li>
+</ol>
+
+<pre><code class="r">a &lt;- 0; b &lt;- abs(rnorm(1))*1000+1; c &lt;- rnorm(1)*1000
+x = -c/b
+x
+</code></pre>
+
+<pre><code>## [1] -0.4986406
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+<slide class="" id="slide-4" style="background:;">
+  <hgroup>
+    <h2>Normal quadratic equation with 2 solutions</h2>
+  </hgroup>
+  <article data-timings="">
+    <pre><code class="r">solutions &lt;- abs(rnorm(3)*1000)+1
+a &lt;- solutions[1]; b &lt;- -(solutions[2]+solutions[3])*solutions[1]
+c &lt;- solutions[1]*solutions[2]*solutions[3]; delta &lt;- b^2 - 4*a*c
+</code></pre>
+
+<p>In this case we should have the solutions</p>
+
+<pre><code class="r">c( (-b-sqrt(delta))/(2*a), (-b+sqrt(delta))/(2*a))
+</code></pre>
+
+<pre><code>## [1]   61.81877 1055.41146
+</code></pre>
+
+<p>that should be the same with</p>
+
+<pre><code class="r">c( solutions[2], solutions[3] )
+</code></pre>
+
+<pre><code>## [1] 1055.41146   61.81877
+</code></pre>
+
+  </article>
+  <!-- Presenter Notes -->
+</slide>
+
+    <slide class="backdrop"></slide>
+  </slides>
+  <div class="pagination pagination-small" id='io2012-ptoc' style="display:none;">
+    <ul>
+      <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=1 title='Quadratic Equation Solver Shiny Application Documentation'>
+         1
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=2 title='The interface'>
+         2
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=3 title='Limit cases'>
+         3
+      </a>
+    </li>
+    <li>
+      <a href="#" target="_self" rel='tooltip' 
+        data-slide=4 title='Normal quadratic equation with 2 solutions'>
+         4
+      </a>
+    </li>
+  </ul>
+  </div>  <!--[if IE]>
+    <script 
+      src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js">  
+    </script>
+    <script>CFInstall.check({mode: 'overlay'});</script>
+  <![endif]-->
+</body>
+  <!-- Load Javascripts for Widgets -->
+  
+  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+  <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+      tex2jax: {
+        inlineMath: [['$','$'], ['\\(','\\)']],
+        processEscapes: true
+      }
+    });
+  </script>
+  <script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  <!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+  </script> -->
+  <script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+  <script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script>
+  <!-- DONE LOADING HIGHLIGHTER JS FILES -->
+   
+  </html>
